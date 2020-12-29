@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./src/css/normalize.css">
+  <link rel="stylesheet" href="./src/css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="tabs">
+      <div class="tabs-buttons">
+        <a href="#authorization" class="tabs-buttons__item">Авторизация</a>
+        <a href="#authentication" class="tabs-buttons__item">Регистрация</a>
+      </div>
+      <div class="tabs-content">
+        <section class="authorization tabs-content__item" id="authorization">
+            <div class="authorization-block">
+              <h1 class="authorization-title">
+                Авторизация
+              </h1>
+              <form action="" class="authorization" id="form-authorization">
+                <div class="authorization__form"> 
+                  <input type="text" name="username" id="userNameAuthorization" placeholder="Имя пользователя">
+                  <small>error message</small>
+                </div>
+                <div class="authorization__form">
+                  <input type="password" id="passwordAuthorization" placeholder="Введите пароль">
+                  <small>error message</small>
+                </div>
+                <button class="authorization__button">
+                  Войти
+                </button>
+              </form>
+            </div>
+        </section>
+        <section class="authentication tabs-content__item" id="authentication">
+            <div class="authentication-block">
+              <h1 class="authentication-title">
+                Регистрация
+              </h1>
+              <form action="" class="authentication__form" id="form-authentication">
+                <input type="text" name="name" class="authentication__input" id="name" placeholder="Придумайте имя пользователя">
+                <input type="email" name="email" class="authentication__input" id="email" placeholder="Ваш e-mail">
+                <input type="phone" name="phone" class="authentication__input" id="phone" placeholder="Ваш телефон">
+                <input type="password" name="password" class="authentication__input" id="password" placeholder="Придумайте пароль">
+                <input type="password" name="passwordConfirmation" class="authentication__input" id="passwordConfirmation" placeholder="Повторите пароль">
+                <div class="authentication__consent">
+                  <input type="checkbox" name="consent" value="true">
+                  <label for="consent">Согласие на обработку персональных данных</label>
+                </div>
+                    <button class="authentication__button">
+                  Зарегистрироваться
+                </button>
+              </form>
+            </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script src="./src/js/script.js"></script>
+</body>
+</html>
