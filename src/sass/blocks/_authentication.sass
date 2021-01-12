@@ -7,7 +7,7 @@
     align-items: center
     flex-direction: column
     width: 700px
-    height: 550px
+    height: 500px
     border-radius: 20px
     box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1)
   &-title
@@ -16,16 +16,21 @@
   &__form
     display: flex
     flex-direction: column
-  &__input
+  &__form small
+    visibility: hidden
+  &__form.error small
+    visibility: visible
+    color: red
+  &__form input
     width: 500px
     height: 40px
     border: 1px solid #cccccc
     margin: 10px 0
     border-radius: 10px
     padding-left: 10px
-  &__input.success
+  &__form.success input
     border-color: green
-  &__input.error
+  &__form.error input
     border-color: red
   &__consent
     display: flex

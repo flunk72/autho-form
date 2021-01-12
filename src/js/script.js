@@ -24,15 +24,20 @@ document.querySelector('.tabs-buttons__item').click()
 const formAuthorization = document.getElementById('form-authorization')
 const userNameAuthorization = document.getElementById('userNameAuthorization')
 const passwordAuthorization = document.getElementById('passwordAuthorization')
+const formAuthentication = document.getElementById('formAuthentication')
+const name = document.getElementById('name')
+const email = document.getElementById('email')
+const password = document.getElementById('password')
+const passwordConfirmation = document.getElementById('passwordConfirmation')
 
 
 formAuthorization.addEventListener('submit', (e) => {
   e.preventDefault()
 
-  checkInputs()
+  checkInputsAuthorization()
 })
 
-function checkInputs() {
+function checkInputsAuthorization() {
   const userNameValue = userNameAuthorization.value.trim()
   const passwordValue = passwordAuthorization.value.trim()
 
@@ -50,15 +55,80 @@ function checkInputs() {
     setSuccessFor(passwordAuthorization)
   }
 }
-  function setErrorFor(input, message) {
-      const authorizationForm = input.parentElement
-      const small = authorizationForm.querySelector('small')
+function setErrorFor(input, message) {
+  const authorizationForm = input.parentElement
+  const small = authorizationForm.querySelector('small')
       //add error message  inside small
-      small.innerText = message
+  small.innerText = message
       // add error class
-      authorizationForm.className = 'authorization__form error'
-    }
-  function setSuccessFor(input) {
-    const authorizationForm = input.parentElement
-    authorizationForm.className = 'authorization__form success'
-    }
+  authorizationForm.className = 'authorization__form error'
+}
+function setSuccessFor(input) {
+  const authorizationForm = input.parentElement
+  authorizationForm.className = 'authorization__form success'
+}
+
+/*validation authentication*/
+
+formAuthentication.addEventListener('submit', (e) => {
+  e.preventDefault()
+
+  checkInputsAuthentication()
+})
+
+function checkInputsAuthentication() {
+  const nameValue = name.value.trim()
+  const emailValue = email.value.trim()
+  const passwordValue = password.value.trim()
+  const passwordConfirmationValue = passwordConfirmation.value.trim()
+
+  if(nameValue === "") {
+    //show error
+    // add error class
+    setErrorFor(name, 'Заполните имя пользователя')
+  } else {
+    // add success class
+    setSuccessFor(name)
+  }
+  if(emailValue === '') {
+    setErrorFor(email, 'Введите e-mail')
+  } else if(!isEmail(emailValue)) {
+    setErrorFor(email, 'Неправильно введен e-mail')
+  } else {
+    setSuccessFor(email)
+  }
+  if(passwordValue.length < 6) {
+    setErrorFor(password, 'Введите корректный пароль. Пароль не может быть менее 6 символов')
+  } else {
+    setSuccessFor(password)
+  }
+  if(passwordConfirmationValue.length < 6) {
+    setErrorFor(passwordConfirmation, 'Подтвердите пароль')
+  } else if(passwordValue !== passwordConfirmationValue) {
+    setErrorFor(passwordConfirmation, 'Пароли не совпадают')
+  } else {
+    setSuccessFor(passwordConfirmation)
+  }
+}
+
+function setErrorFor(input, message) {
+  const authenticationForm = input.parentElement
+  const small = authenticationForm.querySelector('small')
+      //add error message inside small
+  small.innerText = message
+      // add error class
+  authenticationForm.className = 'authentication__form error'
+}
+
+function setSuccessFor(input) {
+  const authenticationForm = input.parentElement
+  authenticationForm.className = 'authentication__form success'
+}
+
+function isEmail(email) {
+	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)
+}
+
+document.getElementById('check').addEventListener('change', function(e) {
+  document.getElementById('btn').disabled = !e.target.checked
+})

@@ -85,7 +85,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   width: 700px;
-  height: 550px;
+  height: 500px;
   border-radius: 20px;
   -webkit-box-shadow: 0 0 10px 5px #dddddd;
           box-shadow: 0 0 10px 5px #dddddd;
@@ -106,7 +106,16 @@
           flex-direction: column;
 }
 
-.authentication__input {
+.authentication__form small {
+  visibility: hidden;
+}
+
+.authentication__form.error small {
+  visibility: visible;
+  color: red;
+}
+
+.authentication__form input {
   width: 500px;
   height: 40px;
   border: 1px solid #cccccc;
@@ -115,11 +124,11 @@
   padding-left: 10px;
 }
 
-.authentication__input.success {
+.authentication__form.success input {
   border-color: green;
 }
 
-.authentication__input.error {
+.authentication__form.error input {
   border-color: red;
 }
 

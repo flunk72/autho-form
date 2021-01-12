@@ -23,14 +23,14 @@
               <h1 class="authorization-title">
                 Авторизация
               </h1>
-              <form action="" class="authorization" id="form-authorization">
+              <form action="" id="form-authorization">
                 <div class="authorization__form"> 
                   <input type="text" name="username" id="userNameAuthorization" placeholder="Имя пользователя">
-                  <small>error message</small>
+                  <small></small>
                 </div>
                 <div class="authorization__form">
                   <input type="password" id="passwordAuthorization" placeholder="Введите пароль">
-                  <small>error message</small>
+                  <small></small>
                 </div>
                 <button class="authorization__button">
                   Войти
@@ -43,17 +43,28 @@
               <h1 class="authentication-title">
                 Регистрация
               </h1>
-              <form action="" class="authentication__form" id="form-authentication">
-                <input type="text" name="name" class="authentication__input" id="name" placeholder="Придумайте имя пользователя">
-                <input type="email" name="email" class="authentication__input" id="email" placeholder="Ваш e-mail">
-                <input type="phone" name="phone" class="authentication__input" id="phone" placeholder="Ваш телефон">
-                <input type="password" name="password" class="authentication__input" id="password" placeholder="Придумайте пароль">
-                <input type="password" name="passwordConfirmation" class="authentication__input" id="passwordConfirmation" placeholder="Повторите пароль">
+              <form action="" id="formAuthentication">
+                <div class="authentication__form">
+                  <input type="text" name="name" id="name" placeholder="Придумайте имя пользователя">
+                  <small></small>
+                </div>
+                <div class="authentication__form">
+                  <input type="email" name="email" id="email" placeholder="Ваш e-mail">
+                  <small></small>
+                </div>
+                <div class="authentication__form">
+                  <input type="password" name="password" id="password" placeholder="Придумайте пароль">
+                  <small></small>
+                </div>
+                <div class="authentication__form">
+                  <input type="password" name="passwordConfirmation" id="passwordConfirmation" placeholder="Повторите пароль">
+                  <small></small>
+                </div>
                 <div class="authentication__consent">
-                  <input type="checkbox" name="consent" value="true">
+                  <input type="checkbox" name="consent" id="check" value="true">
                   <label for="consent">Согласие на обработку персональных данных</label>
                 </div>
-                    <button class="authentication__button">
+                <button class="authentication__button" id="btn" disabled>
                   Зарегистрироваться
                 </button>
               </form>
